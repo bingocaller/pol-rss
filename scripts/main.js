@@ -12,7 +12,7 @@
   try {
     const
       outputArea = document.querySelector('.rss-container'),
-      fetchURL = 'http://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fpolitiken.dk%2Frss%2Findland.rss',
+      fetchURL = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fpolitiken.dk%2Frss%2Findland.rss',
       fetchOptions = {
         method: 'get'
       },
