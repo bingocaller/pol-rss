@@ -1,0 +1,22 @@
+{
+  "name": "Politiken RSS-feed-læser",
+  "short_name": "Politiken RSS",
+  "start_url": ".",
+  "scope": "/",
+  "display": "minimal-ui",
+  "lang": "da-DK",
+  "orientation": "portrait-primary",
+  "theme_color": "#c00",
+  "background_color": "#c00",
+  "description": "Politikens egen lynhurtige RSS-feed PWA",
+  "icons": [
+    {
+      "src": "images/pol_icon.svg",
+      "sizes": "32x32 64x64 96x96 128x128 160x160 192x192"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "192x192"
+    }
+  ]
+}
