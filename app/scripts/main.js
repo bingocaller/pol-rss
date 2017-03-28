@@ -8,25 +8,26 @@
 //   });
 // }
 
-(async() => {
+(async () => {
   try {
-    const
-      outputArea = document.querySelector('.rss-container'),
-      fetchURL = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fpolitiken.dk%2Frss%2Findland.rss',
-      fetchOptions = {
-        method: 'get'
-      },
-      response = await fetch(fetchURL, fetchOptions),
-      data = await response.json();
-    for (var i = 0; i < data.items.length; i++) {
+    const outputArea = document.querySelector('.rss-container');
+    const fetchURL = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fpolitiken.dk%2Frss%2Fsenestenyt.rss';
+    const fetchOptions = {
+      method: 'get',
+    };
+    const response = await fetch(fetchURL, fetchOptions);
+    const data = await response.json();
+    for (let i = 0; i < data.items.length; i++) {
+      const item = data.items[i];
       outputArea.innerHTML += `
-        <a class="news-item" href="${data.items[i].link}">
-          <h2>${data.items[i].title}</h2>
-          <p>${data.items[i].content}</p>
+        <a class="news-item" href="${item.link}">
+          <span class="news-item__label">${item.categories[0]}</span>
+          <h2 class="news-item__headline">${item.title}</h2>
+          <p class="news-item__teaser">${item.content}</p>
         </a>
       `;
     }
   } catch (e) {
-    console.error('ERROR: ' + e);
+    console.error(`ERROR: ${e}`);
   }
 })();
