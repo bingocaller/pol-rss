@@ -1,6 +1,6 @@
 {
   "name": "Politiken RSS-feed-læser",
-  "short_name": "Politiken RSS",
+  "short_name": "Pol RSS",
   "start_url": ".",
   "scope": "/",
   "display": "minimal-ui",
