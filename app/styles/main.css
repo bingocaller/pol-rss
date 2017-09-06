@@ -151,16 +151,16 @@ a {
 
 @media (min-width: 40em) {
   .rss-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 300px 1fr;
   }
 }
 @media (min-width: 60em) {
   .rss-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 300px 2fr 1fr;
   }
 }
 @media (min-width: 80em) {
   .rss-container {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 300px repeat(3, 1fr);
   }
 }
