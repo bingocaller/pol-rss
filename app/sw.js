@@ -8,8 +8,7 @@ const urlsToCache = [
 self.addEventListener('install', (event) => {
   // Perform install steps
   event.waitUntil(
-    caches.open(CACHE_NAME)
-    .then((cache) => {
+    caches.open(CACHE_NAME).then((cache) => {
       console.log('Opened cache');
       return cache.addAll(urlsToCache);
     }).catch((errorMsg) => {
@@ -20,17 +19,15 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      }).catch((errorMsg) => {
-        console.log('Fetching from cache failed', errorMsg);
+    caches.match(event.request).then((response) => {
+      // Cache hit - return response
+      if (response) {
+        return response;
       }
-    )
+      return fetch(event.request);
+    }).catch((errorMsg) => {
+      console.log('Fetching from cache failed', errorMsg);
+    })
   );
 });
 
