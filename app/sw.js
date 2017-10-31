@@ -2,6 +2,10 @@ const CACHE_NAME = 'rss-poc-v1';
 const urlsToCache = [
   '/',
   '/styles/main.css',
+  '/styles/fonts/CapitoliumBold.woff2',
+  '/styles/fonts/EgyptienneRegular.woff2',
+  '/styles/fonts/FlamaBook.woff2',
+  '/styles/fonts/FlamaSemibold.woff2',
   '/scripts/main.js',
 ];
 
