@@ -14,28 +14,28 @@
 
 @font-face {
   font-family: 'Capitolium';
-  src: url('fonts/CapitoliumBold.woff2') format("woff2");
+  src: url('fonts/CapitoliumBold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Flama';
-  src: url('fonts/FlamaBook.woff2') format("woff2");
+  src: url('fonts/FlamaBook.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Flama';
-  src: url('fonts/FlamaSemibold.woff2') format("woff2");
+  src: url('fonts/FlamaSemibold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Egyptienne';
-  src: url('fonts/EgyptienneRegular.woff2') format("woff2");
+  src: url('fonts/EgyptienneRegular.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
 }
@@ -102,11 +102,12 @@ a {
 .news-item {
   position: relative;
   padding: 1.5em;
+  outline: none;
   text-decoration: none;
   color: var(--contrast-color);
   background-color: var(--base-color);
 }
-.news-item::before {
+.news-item::after {
   content: '';
   position: absolute;
   top: 0;
@@ -117,8 +118,8 @@ a {
   background-color: rgba(0, 0, 0, .05);
   transition: opacity .2s ease-out;
 }
-.news-item:focus::before,
-.news-item:hover::before {
+.news-item:focus::after,
+.news-item:hover::after {
   opacity: 1;
 }
 
