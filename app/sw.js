@@ -11,37 +11,29 @@ const urlsToCache = [
 
 self.addEventListener('install', (event) => {
   // Perform install steps
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('Opened cache');
-      return cache.addAll(urlsToCache);
-    }).catch((errorMsg) => {
-      console.log('Caching failed', errorMsg);
-    })
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => {
+    console.log('Opened cache');
+    return cache.addAll(urlsToCache);
+  }).catch((errorMsg) => {
+    console.log('Caching failed', errorMsg);
+  }));
 });
 
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      // Cache hit - return response
-      if (response) {
-        return response;
-      }
-      return fetch(event.request);
-    }).catch((errorMsg) => {
-      console.log('Fetching from cache failed', errorMsg);
-    })
-  );
+  event.respondWith(caches.match(event.request).then((response) => {
+    // Cache hit - return response
+    if (response) {
+      return response;
+    }
+    return fetch(event.request);
+  }).catch((errorMsg) => {
+    console.log('Fetching from cache failed', errorMsg);
+  }));
 });
 
 self.addEventListener('activate', (event) => {
   const cacheWhitelist = ['rss-poc-v1'];
-  event.waitUntil(
-    caches.keys().then((cacheNames) => Promise.all(
-      cacheNames.map((cacheName) => (
-        cacheWhitelist.indexOf(cacheName) === -1 ? caches.delete(cacheName) : null
-      ))
-    ))
-  );
+  event.waitUntil(caches.keys().then((cacheNames) => Promise.all(cacheNames.map((cacheName) => (
+    cacheWhitelist.indexOf(cacheName) === -1 ? caches.delete(cacheName) : null
+  )))));
 });
